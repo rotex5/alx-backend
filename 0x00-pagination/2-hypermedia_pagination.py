@@ -4,6 +4,7 @@ Simple pagination
 Hypermedia pagination
 """
 import csv
+from math import ceil
 from typing import Any, Dict, List, Optional
 index_range = __import__('0-simple_helper_function').index_range
 
@@ -54,7 +55,7 @@ class Server:
         * total_pages: the total number of pages in the dataset as an integer
         """
         data: List[List] = self.get_page(page, page_size)
-        total_pages: int = len(self.dataset()) // page_size + 1
+        total_pages: int = ceil(len(self.dataset()) / page_size)
         page_size = len(data)
         next_page: Optional[int] = page + 1 if page < total_pages else None
         prev_page: Optional[int] = page - 1 if page > 1 else None
