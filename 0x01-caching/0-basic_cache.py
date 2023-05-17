@@ -14,14 +14,14 @@ class BasicCache(BaseCaching):
         """
         inserting data into cache dictionay
         """
-        if (not key or not item):
+        if (key is None or item is None):
             pass
-        self.cache_data.update({key: item})
+        self.cache_data[key] = item
 
     def get(self, key):
         """
         return data associated with key
         """
-        if (not key or key not in self.cache_data.keys()):
+        if (key is None or key not in self.cache_data.keys()):
             return None
         return self.cache_data.get(key)
