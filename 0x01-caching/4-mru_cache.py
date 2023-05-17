@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-LRU Caching Implementation
+MRU Caching Implementation
 """
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-class LRUCache(BaseCaching):
+class MRUCache(BaseCaching):
     """
-    Cache implememtation based on LRU algorithm
+    Cache implememtation based on MRU algorithm
     """
 
     def __init__(self):
@@ -24,10 +24,10 @@ class LRUCache(BaseCaching):
                 # Remove key from the order
                 self.used_keys.remove(key)
             elif len(self.cache_data) >= super().MAX_ITEMS:
-                # Remove the least recently used key
-                lru_key = self.used_keys.pop(0)
-                print("DISCARD: {}".format(lru_key))
-                del self.cache_data[lru_key]
+                # Remove the most recently used key
+                mru_key = self.used_keys.pop()
+                print("DISCARD: {}".format(mru_key))
+                del self.cache_data[mru_key]
 
             # Add key to the end of the order
             self.used_keys.append(key)
