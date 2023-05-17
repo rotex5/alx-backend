@@ -17,8 +17,6 @@ class FIFOCache(BaseCaching):
         """
         Insert data into cache
         """
-        if (key is None or item is None):
-            pass
 
         if (len(self.cache_data) >= BaseCaching.MAX_ITEMS):
             if (key in self.cache_data):
