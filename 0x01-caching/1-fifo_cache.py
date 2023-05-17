@@ -17,17 +17,19 @@ class FIFOCache(BaseCaching):
         """
         Insert data into cache
         """
+        if key and item:
+            if (len(self.cache_data) >= BaseCaching.MAX_ITEMS):
+                if (key in self.cache_data):
+                    self.cache_data[key] = item
+                    return
+                else:
+                    first_key = list(self.cache_data.keys())[0]
+                    print("DISCARD: {}".format(first_key))
+                    self.cache_data.pop(first_key)
 
-        if (len(self.cache_data) >= BaseCaching.MAX_ITEMS):
-            if (key in self.cache_data):
-                self.cache_data[key] = item
-                return
-            else:
-                first_key = list(self.cache_data.keys())[0]
-                print("DISCARD: {}".format(first_key))
-                self.cache_data.pop(first_key)
-
-        self.cache_data[key] = item
+            self.cache_data[key] = item
+        else:
+            pass
 
     def get(self, key):
         """
