@@ -14,7 +14,7 @@ class BasicCache(BaseCaching):
         """
         inserting data into cache dictionay
         """
-        if (not key or not item):
+        if not key or not item:
             pass
         self.cache_data[key] = item
 
