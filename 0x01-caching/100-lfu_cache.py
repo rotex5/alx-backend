@@ -2,8 +2,8 @@
 """
 LFU Caching Implementation
 """
-BaseCaching = __import__('base_caching').BaseCaching
 from collections import defaultdict
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LFUCache(BaseCaching):
