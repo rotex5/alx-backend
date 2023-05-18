@@ -1,10 +1,14 @@
-from base_caching import BaseCaching
+#!/usr/bin/env python3
+"""
+LFU Caching Implementation
+"""
+BaseCaching = __import__('base_caching').BaseCaching
 from collections import defaultdict
 
 
 class LFUCache(BaseCaching):
     """
-    Cache implememtation based on LFU algorithm
+    Cache implememtation based on LFU algorithm:wq
     """
     def __init__(self):
         """
